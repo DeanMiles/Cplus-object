@@ -1,0 +1,35 @@
+#include <cstdlib>
+#include <cstring>
+
+using namespace std;
+
+    class Employee
+    {
+    public:
+	string Name;
+	string Position;
+	unsigned int Age;
+    
+    Employee(string Name, string Position, unsigned int Age)
+    {
+	this->Name = Name ;
+	this->Position = Position ;
+	this->Age = Age ;
+    }
+    
+    Employee()
+    {
+    	Name="";
+    	Position = "";
+    	Age = 0 ;
+    }
+
+    friend ostream& operator<< (ostream &out, const Employee &toWrite);
+    };
+
+
+    ostream& operator<< (ostream &out, const Employee &toWrite)
+    {
+	out << "\nName: " << toWrite.Name<< "\nPosition: " << toWrite.Position << "\nAge: " << toWrite.Age<<endl;
+	return out;
+    }
